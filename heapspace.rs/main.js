@@ -1,0 +1,40 @@
+"use strict";
+
+const OpenData = require('../db/OpenData');
+const source = require('./source');
+const chalk = require('chalk');
+
+function makeStartitDatabase() {
+  const db = new OpenData.Database();
+
+  console.log(chalk.green(source.id));
+
+  // owner
+  const owner = new OpenData.Owner(source.prefix + "hq-1", "Heapspace udrženje građana", "Heapspace", db.orgs['ngo'].id);
+  db.owners[owner.id] = owner;
+
+  // dataset
+  const dataset = new OpenData.DataSet(source.prefix + "ds-1", "OpenData", "Podaci u vezi kataloga https://opendata.rs");
+  db.datasets[dataset.id] = dataset;
+
+  // resource
+  const resource = new OpenData.Resource(
+    source.prefix + "1",
+    "https://opendata.rs/d/hs-1/opendata_scores.json",
+    "Matapodaci resursa",
+    "Metapodaci resursa iz katalog resursa otvorenih podataka (https://opendata.rs). Oni uključuju validaciju resursa po više pitanja: online prisutnosti, podršci za HTTPS protokol itd, kao i podatke o veličini resursa i vremenu njegovog preuzimanja.",
+    db.formats['json'].id,
+    db.licenses['CC-BY-4.0'].id,
+    dataset.id, owner.id, source.id,
+    new Date('2019-06-01'),
+    new Date('2019-06-01')
+  );
+  db.resources.push(resource);
+
+  // source
+  db.sources[source.id] = source;
+
+  return db;
+}
+
+module.exports = makeStartitDatabase;
