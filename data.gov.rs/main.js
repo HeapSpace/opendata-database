@@ -27,9 +27,9 @@ function resolveOrgClass(db, orgClass) {
 function resolveLicense(db, license) {
   switch (license.toLowerCase()) {
     case 'public_domain':
-      return db.licenses['pd'];
+      return db.licenses['PD'];
     case 'notspecified':
-      return db.licenses['n/a'];
+      return db.licenses['N/A'];
     default:
       throw new Error(`Unknown license: ${license}`);
   }
@@ -93,8 +93,7 @@ function collectDataSets(db, owner, data) {
   const dataSet = new OpenData.DataSet(
       source.prefix + data.id,
       data.title,
-      data.description,
-      license.id);
+      data.description);
 
   db.datasets[dataSet.id] = dataSet;
 
