@@ -12,24 +12,24 @@ function loadFormats(db) {
   [
 
     // OTVORENI FORMATI
-    new Format( "csv", "Comma-Separated Values"),
-    new Format( "json", "JSON"),
-    new Format( "xml", "XML"),
+    new Format("csv", "Comma-Separated Values"),
+    new Format("json", "JSON"),
+    new Format("xml", "XML"),
 
     // OTVORENI, TEŽE ČITLJIVI
-    new Format( "xlsx", "Microsoft Excel Open XML Spreadsheet"),
-    new Format( "ods", "OpenOffice spreadsheet"),
+    new Format("xlsx", "Microsoft Excel Open XML Spreadsheet"),
+    new Format("ods", "OpenOffice spreadsheet"),
 
     // OTVORENI, NEČITLJIVI
-    new Format( "zip", "ZIP archive"),
-    new Format( "xlsm", "Microsoft Excel Open XML Macro-Enabled Spreadsheet"),
+    new Format("zip", "ZIP archive"),
+    new Format("xlsm", "Microsoft Excel Open XML Macro-Enabled Spreadsheet"),
 
     // ZATVORENI
-    new Format( "xls", "Microsoft Excel Spreadsheet"),
+    new Format("xls", "Microsoft Excel Spreadsheet"),
 
     // NESTRUKTUIRANI FORMATI
-    new Format( "txt", "Text file"),
-    new Format( "docx", "Microsoft Word Open XML Document"),
+    new Format("txt", "Text file"),
+    new Format("docx", "Microsoft Word Open XML Document"),
 
   ].forEach(f => db.formats[f.id] = f);
 
@@ -40,11 +40,19 @@ function loadFormats(db) {
  */
 function loadLicenses(db) {
   [
-    // OPEN LICENSES, BUT NOT RECOMMENDED
-    new License( "pd", "Public domain"),
+    // RECOMMENDED
+    new License("CC0", "Creative Commons CCZero"),
+    new License("PDDL", "Open Data Commons Public Domain Dedication and Licence"),
+    new License("CC-BY-4.0", "Creative Commons Attribution 4.0"),
+    new License("ODC-BY", "Open Data Commons Attribution License"),
+    new License("CC-BY-SA-4.0", "Creative Commons Attribution Share-Alike 4.0"),
+    new License("ODbL", "Open Data Commons Open Database License"),
+
+    // CONFORMANT, BUT NOT RECOMMENDED
+    new License("PD", "Public domain"),
 
     // CLOSED LICENSES
-    new License( "n/a", "No license"),
+    new License("N/A", "No license"),
 
   ].forEach(l => db.licenses[l.id] = l);
 }

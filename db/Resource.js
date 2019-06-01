@@ -1,5 +1,7 @@
 "use strict";
 
+const util = require('./util');
+
 class Resource {
 
   constructor(id, url, title, description, format, license, datasetId, ownerId, sourceId, createdAt, lastModified) {
@@ -12,8 +14,8 @@ class Resource {
     this.datasetId = datasetId;
     this.ownerId = ownerId;
     this.sourceId = sourceId;
-    this.createdAt = createdAt;
-    this.lastModified = lastModified;
+    this.createdAt = util.toDateTimeString(createdAt);
+    this.lastModified = util.toDateTimeString(lastModified);
   }
 }
 
