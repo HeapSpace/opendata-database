@@ -30,6 +30,7 @@ function loadFormats(db) {
     // NESTRUKTUIRANI FORMATI
     new Format("txt", "Text file"),
     new Format("docx", "Microsoft Word Open XML Document"),
+    new Format("html", "HTML"),
 
   ].forEach(f => db.formats[f.id] = f);
 
@@ -64,7 +65,9 @@ function loadOrgs(db) {
   [
     new Org( "gov", "Government"),
 
-    new Org( "ngo", "Non-government organization")
+    new Org( "ngo", "Non-government organization"),
+
+    new Org( "user", "Individual user")
 
   ].forEach(o => db.orgs[o.id] = o);
 }

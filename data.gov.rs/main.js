@@ -16,6 +16,8 @@ function resolveOrgClass(db, orgClass) {
   switch (orgClass.toLowerCase()) {
     case 'organization':
       return db.orgs['gov'];
+    case 'user':
+      return db.orgs['user'];
     default:
       throw new Error(`Unknown org class: ${orgClass}`);
   }
@@ -62,6 +64,9 @@ function resolveFormat(db, format) {
       return db.formats['docx'];
     case 'xlsm':
       return db.formats['xlsm'];
+    case 'html':
+    case 'htm':
+      return db.formats['html'];
     default:
       throw new Error(`Unknown format: ${format}`);
   }
@@ -128,13 +133,29 @@ function collectOwners() {
   console.log(chalk.green(source.id));
 
   for (const d of datasets.data) {
-    const ownerId = source.prefix + d.organization.id;
 
-    let owner = db.owners[ownerId];
-    if (!owner) {
-      owner = makeOwner(db, d.organization);
+    let owner;
+    if (d.organization !== null) {
+      // owner is an `organization`
+      const ownerId = source.prefix + d.organization.id;
 
-      db.owners[ownerId] = owner;
+      owner = db.owners[ownerId];
+      if (!owner) {
+        owner = makeOwner(db, d.organization);
+
+        db.owners[ownerId] = owner;
+      }
+    }
+    else {
+      // owner is an `owner`
+      const ownerId = source.prefix + d.owner.id;
+
+      owner = db.owners[ownerId];
+      if (!owner) {
+        owner = makeOwner(db, d.owner);
+
+        db.owners[ownerId] = owner;
+      }
     }
 
     collectDataSets(db, owner, d);
