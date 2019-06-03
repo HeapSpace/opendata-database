@@ -14,7 +14,9 @@ function makeStartitDatabase() {
   db.owners[owner.id] = owner;
 
   // dataset
-  const dataset = new OpenData.DataSet(source.prefix + "ds-1", "OpenData", "Podaci u vezi kataloga https://opendata.rs");
+  const dataset = new OpenData.DataSet(
+    source.prefix + "ds-1",
+    "OpenData", "Podaci u vezi kataloga https://opendata.rs");
   db.datasets[dataset.id] = dataset;
 
   // resource
@@ -23,12 +25,14 @@ function makeStartitDatabase() {
     id,
     `https://opendata.rs/d/${id}/opendata_scores.json`,
     "Matapodaci resursa",
-    "Metapodaci resursa iz katalog resursa otvorenih podataka (https://opendata.rs). Oni uključuju validaciju resursa po više pitanja: online prisutnosti, podršci za HTTPS protokol itd, kao i podatke o veličini resursa i vremenu njegovog preuzimanja.",
+    "Metapodaci resursa iz katalog resursa otvorenih podataka (https://opendata.rs). Oni uključuju validaciju " +
+    "resursa po više pitanja: online prisutnosti, podršci za HTTPS protokol itd, " +
+    "kao i podatke o veličini resursa i vremenu njegovog preuzimanja.",
     db.formats['json'].id,
     db.licenses['CC-BY-4.0'].id,
     dataset.id, owner.id, source.id,
-    new Date('2019-06-01'),
-    new Date('2019-06-01')
+    new Date('2019-06-03'),
+    new Date('2019-06-03')
   );
   db.resources.push(resource);
 

@@ -14,10 +14,29 @@ function makeStartitDatabase() {
   db.owners[owner.id] = owner;
 
   // dataset
-  const dataset = new OpenData.DataSet(source.prefix + "ds-1", "Istraživanje programera u Srbiji", "Istraživanja domaće programerske scene koju sprovodi Startit. Pitanja o uslovima u kojima se radi, obrazovanju, iskustvima i planovima, iz kojih mesta najčešće dolaze, koje programske jezike najviše koriste, kako ocenjuju svoje zadovoljstvo poslom.");
+  const dataset = new OpenData.DataSet(source.prefix + "ds-1",
+    "Istraživanje programera u Srbiji",
+    "Istraživanja domaće programerske scene koju sprovodi Startit. Pitanja o uslovima u kojima se radi, " +
+    "obrazovanju, iskustvima i planovima, iz kojih mesta najčešće dolaze, koje programske jezike najviše " +
+    "koriste, kako ocenjuju svoje zadovoljstvo poslom.");
   db.datasets[dataset.id] = dataset;
 
   // resources
+  {
+    const id = source.prefix + "1";
+    const resource = new OpenData.Resource(
+      id,
+      `https://opendata.rs/d/${id}/istrazivanje-programera-u-srbiji-1.csv`,
+      "Istraživanje programera #1 (2015)",
+      "Rezultati prvog istraživanja domaće programerske scene koju sprovodi Startit.",
+      db.formats['csv'].id,
+      db.licenses['CC-BY-4.0'].id,
+      dataset.id, owner.id, source.id,
+      new Date('2015-01-22'),
+      new Date('2015-01-22')
+    );
+    db.resources.push(resource);
+  }
   {
     const id = source.prefix + "2";
     const resource = new OpenData.Resource(
@@ -28,8 +47,8 @@ function makeStartitDatabase() {
       db.formats['csv'].id,
       db.licenses['CC-BY-4.0'].id,
       dataset.id, owner.id, source.id,
-      new Date('2019-01-22'),
-      new Date('2019-01-22')
+      new Date('2018-01-22'),
+      new Date('2018-01-22')
     );
     db.resources.push(resource);
   }
