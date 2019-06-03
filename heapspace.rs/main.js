@@ -24,7 +24,7 @@ function makeStartitDatabase() {
   const resource = new OpenData.Resource(
     id,
     `https://opendata.rs/d/${id}/opendata_scores.json`,
-    "Matapodaci resursa",
+    "Metapodaci resursa",
     "Metapodaci resursa iz katalog resursa otvorenih podataka (https://opendata.rs). Oni uključuju validaciju " +
     "resursa po više pitanja: online prisutnosti, podršci za HTTPS protokol itd, " +
     "kao i podatke o veličini resursa i vremenu njegovog preuzimanja.",
