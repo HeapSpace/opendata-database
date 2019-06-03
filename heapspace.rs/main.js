@@ -10,7 +10,7 @@ function makeStartitDatabase() {
   console.log(chalk.green(source.id));
 
   // owner
-  const owner = new OpenData.Owner(source.prefix + "hq-1", "Heapspace udrženje građana", "Heapspace", db.orgs['ngo'].id);
+  const owner = new OpenData.Owner(source.prefix + "hq-1", "Heapspace udruženje građana", "Heapspace", db.orgs['ngo'].id);
   db.owners[owner.id] = owner;
 
   // dataset
