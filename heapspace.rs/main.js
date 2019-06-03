@@ -18,9 +18,10 @@ function makeStartitDatabase() {
   db.datasets[dataset.id] = dataset;
 
   // resource
+  const id = source.prefix + "1";
   const resource = new OpenData.Resource(
-    source.prefix + "1",
-    "https://opendata.rs/d/hs-1/opendata_scores.json",
+    id,
+    `https://opendata.rs/d/${id}/opendata_scores.json`,
     "Matapodaci resursa",
     "Metapodaci resursa iz katalog resursa otvorenih podataka (https://opendata.rs). Oni uključuju validaciju resursa po više pitanja: online prisutnosti, podršci za HTTPS protokol itd, kao i podatke o veličini resursa i vremenu njegovog preuzimanja.",
     db.formats['json'].id,

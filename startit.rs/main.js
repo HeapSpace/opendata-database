@@ -18,9 +18,10 @@ function makeStartitDatabase() {
   db.datasets[dataset.id] = dataset;
 
   // resource
+  const id = source.prefix + "3";
   const resource = new OpenData.Resource(
-    source.prefix + "3",
-    "https://opendata.rs/d/startit-1/istrazivanje-programera-u-srbiji-3.csv",
+    id,
+    `https://opendata.rs/d/${id}/istrazivanje-programera-u-srbiji-3.csv`,
     "Istraživanje programera #3 (2018)",
     "Rezultati trećeg istraživanja domaće programerske scene koju sprovodi Startit. 1.108 srpskih programerki i programera odgovaralo na niz pitanja o uslovima u kojima rade, obrazovanju, iskustvima i planovima.",
     db.formats['csv'].id,
