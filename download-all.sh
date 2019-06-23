@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-OD_SOURCE=data.gov.rs
-OD_FILE=datasets.json
-
 echo
 echo 'OpenData Downloader v1.0'
 echo 'https://opendata.rs'
 echo
+
+# 1
+
+OD_SOURCE=data.gov.rs
+OD_FILE=datasets.json
 
 echo "> ${OD_SOURCE}"
 cd ${OD_SOURCE}
@@ -19,6 +21,23 @@ if [[ ${next_page} != "null" ]]; then
   return 1
 fi
 
+cd ..
+
+# 2
+
+OD_SOURCE=mpn.gov.rs
+OD_FILE=datasets.html
+
+echo "> ${OD_SOURCE}"
+cd ${OD_SOURCE}
+
+http 'http://opendata.mpn.gov.rs' > ${OD_FILE}
+
+cd ..
+
+
+# the end
+
 echo "OK."
 echo
-cd ..
+
