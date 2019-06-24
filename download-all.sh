@@ -23,18 +23,6 @@ fi
 
 cd ..
 
-# 2
-
-OD_SOURCE=mpn.gov.rs
-OD_FILE=datasets.html
-
-echo "> ${OD_SOURCE}"
-cd ${OD_SOURCE}
-
-http 'http://opendata.mpn.gov.rs' > ${OD_FILE}
-
-cd ..
-
 
 # the end
 

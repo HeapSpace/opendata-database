@@ -12,7 +12,6 @@ console.log(chalk.yellow('Building OpenData database'));
   require('./data.gov.rs/main')(),
   require('./startit.rs/main')(),
   require('./heapspace.rs/main')(),
-  require('./mpn.gov.rs/main')(),
 ].forEach(sourceDb => db.merge(sourceDb));
 
 
