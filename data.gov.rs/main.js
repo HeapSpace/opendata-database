@@ -41,6 +41,14 @@ function resolveLicense(db, license) {
  * Resolves a format.
  */
 function resolveFormat(db, format) {
+  if (format === '-godinu.xlsx') {
+    format = 'xlsx';
+  }
+  if (format === '-godina-po-nedeljama.xlsx') {
+    format = 'xlsx';
+  }
+
+
   switch (format.toLowerCase()) {
     case 'csv':
       return db.formats['csv'];
@@ -67,6 +75,18 @@ function resolveFormat(db, format) {
     case 'html':
     case 'htm':
       return db.formats['html'];
+    case 'shp':
+      return db.formats['shp'];
+    case 'shx':
+      return db.formats['shx'];
+    case 'dbf':
+      return db.formats['dbf'];
+    case 'kmz':
+      return db.formats['kmz'];
+    case 'kml':
+      return db.formats['kml'];
+    case 'gpx':
+      return db.formats['gpx'];
     default:
       throw new Error(`Unknown format: ${format}`);
   }

@@ -15,10 +15,16 @@ function loadFormats(db) {
     new Format("csv", "Comma-Separated Values"),
     new Format("json", "JSON"),
     new Format("xml", "XML"),
+    new Format("kmz", "Keyhole Markup language Zipped"),
+    new Format("kml", "Keyhole Markup language"),
+    new Format("gpx", "GPS Exchange Format"),
 
     // OTVORENI, TEŽE ČITLJIVI
     new Format("xlsx", "Microsoft Excel Open XML Spreadsheet"),
     new Format("ods", "OpenOffice spreadsheet"),
+    new Format("shp", "Shapefile shape"),
+    new Format("shx", "Shapefile index"),
+    new Format("dbf", "Shapefile attribute"),
 
     // OTVORENI, NEČITLJIVI
     new Format("zip", "ZIP archive"),
